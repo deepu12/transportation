@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="SaveReplyActionForm" type="com.transport.actionform.SaveReplyActionForm"/>
+        <form-bean name="AddAreasActionForm" type="com.transport.actionform.AddAreasActionForm"/>
+        <form-bean name="AdminActionForm" type="com.transport.actionform.AdminActionForm"/>
+        <form-bean name="GetFeedbackActionForm" type="com.transport.actionform.GetFeedbackActionForm"/>
+        <form-bean name="FeedbackActionForm" type="com.transport.actionform.FeedbackActionForm"/>
+
+        <form-bean name="UpdateTimingsActionForm" type="com.transport.actionform.UpdateTimingsActionForm"/>
+        <form-bean name="CityResidentsActionForm" type="com.transport.actionform.CityResidentsActionForm"/>
+        <form-bean name="AddVehicleActionForm" type="com.transport.actionform.AddVehicleActionForm"/>
+        <form-bean name="RegistrationActionFormBean" type="com.transport.actionform.RegistrationActionFormBean"/>
+        <form-bean name="LoginActionFormBean" type="com.transport.actionform.LoginActionFormBean"/>
+
+    </form-beans>
+
+    <global-exceptions>
+
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+    </global-forwards>
+
+    <action-mappings>
+
+        <action input="/registration.jsp" name="RegistrationActionFormBean" path="/RegistrationAction" scope="request" type="com.transport.action.RegistrationAction">
+            <forward name="success" path="/Login.jsp"/>
+            <forward name="failure" path="/Failure.jsp"/>
+        </action>
+        <action input="/employeeReg.jsp" name="RegistrationActionFormBean" path="/RegistrationAction" scope="request" type="com.transport.action.RegistrationAction">
+            <forward name="success" path="/Admin.jsp"/>
+            <forward name="failure" path="/Failure.jsp"/>
+        </action>
+        <action input="/Login.jsp" name="LoginActionFormBean" path="/LoginAction" scope="session" type="com.transport.action.LoginAction">
+            <forward name="cityempsview" path="/CityEmps.jsp"/>
+            <forward name="cityresidentsmenu" path="/CityResidentsMenu.jsp"/>
+            <forward name="admin" path="/Admin.jsp"/>
+            <forward name="failure" path="/Failure.jsp"/>
+        </action>
+
+        <action input="/AddVehicleInfo.jsp" name="AddVehicleActionForm" path="/AddVehicleAction" scope="request" type="com.transport.action.AddVehicleAction">
+            <forward name="success" path="/AddVehicleInfo.jsp"/>
+            <forward name="failure" path="/Failure.jsp"/>
+        </action>
+        <action input="/CityResidents.jsp" name="CityResidentsActionForm" path="/CityResidentsAction" scope="request" type="com.transport.action.CityResidentsAction">
+            <forward name="success" path="/ViewVehicleInfo2.jsp"/>
+            <forward name="failure" path="/Failure.jsp"/>
+        </action>
+
+      <!--   <action input="/CityResidents1.jsp" name="CityResidentsActionForm" path="/CityResidentsAction" scope="request" type="com.transport.action.CityResidentsAction">
+        <forward name="success" path="/ViewVehicleInfo1.jsp"/>
+        <forward name="failure" path="/Failure.jsp"/>
+        </action>
+
+        <action input="/CityResidents2.jsp" name="CityResidentsActionForm" path="/CityResidentsAction" scope="request" type="com.transport.action.CityResidentsAction">
+        <forward name="success" path="/ViewVehicleInfo2.jsp"/>
+        <forward name="failure" path="/Failure.jsp"/>
+        </action> -->
+
+        <action input="/UpdateTimings.jsp" name="UpdateTimingsActionForm" path="/UpdateTimingsAction" scope="request" type="com.transport.action.UpdateTimingsAction">
+            <forward name="success" path="/UpdateTimings.jsp"/>
+            <forward name="failure" path="/Failure.jsp"/>
+        </action>
+
+        <action path="/ViewTimingsAction" type="com.transport.action.ViewTimingsAction">
+            <forward name="success" path="/ViewTimings.jsp"/>
+        </action>
+
+        <action path="/ViewTimingsAction1" type="com.transport.action.ViewTimingsAction1">
+            <forward name="success" path="/ViewTimings1.jsp"/>
+        </action>
+
+
+        <action path="/ViewTimingsAction2" type="com.transport.action.ViewTimingsAction2">
+            <forward name="success" path="/ViewTimings2.jsp"/>
+        </action>
+
+
+      
+
+
+        <action input="/Feedback1.jsp" name="FeedbackActionForm" path="/FeedbackAction" scope="request" type="com.transport.action.FeedbackAction">
+            <forward name="success" path="/Feedback1.jsp"/>
+            <forward name="failure" path="/Failure.jsp"/>
+        </action>
+
+      
+
+    <!--    <action input="/GetFeedback.jsp" name="GetFeedbackActionForm" path="/GetFeedbackAction" scope="request" type="com.transport.action.GetFeedbackAction">
+            <forward name="success" path="/GetFeedbackOutput.jsp"/>
+            <forward name="failure" path="/Failure.jsp"/>
+        </action>
+        
+          <action input="/GetFeedback2.jsp" name="GetFeedbackActionForm" path="/GetFeedbackAction" scope="request" type="com.transport.action.GetFeedbackAction">
+            <forward name="success" path="/GetFeedbackOutput2.jsp"/>
+            <forward name="failure" path="/Failure.jsp"/>
+        </action>
+-->
+        <action input="/GetFeedback1.jsp" name="GetFeedbackActionForm" path="/GetFeedbackAction" scope="request" type="com.transport.action.GetFeedbackAction">
+            <forward name="success" path="/GetFeedbackOutput2.jsp"/>
+            <forward name="failure" path="/Failure.jsp"/>
+        </action>
+
+
+
+
+      
+
+        <action path="/LogoutAction" type="com.transport.action.LogoutAction">
+            <forward name="success" path="/Home1.jsp"/>
+        </action>
+        <action input="/addAreas.jsp" name="AdminActionForm" path="/AdminAction" scope="request" type="com.transport.action.AdminAction">
+            <forward name="success" path="/addAreas.jsp"/>
+            <forward name="failure" path="/Failure.jsp"/>
+        </action>
+        <action path="/GiveResponse" type="com.transport.action.GiveResponseAction">
+            <forward name="success" path="/GiveResponse.jsp"/>
+            <forward name="failure" path="/Failure.jsp"/>
+        </action>
+        <action path="/GiveFeedbackReply" type="com.transport.action.GiveFeedbackReplyAction">
+        <forward name="success" path="/GiveReply.jsp"/>
+            <forward name="failure" path="/Failure.jsp"/>
+        </action>
+        <action input="/GiveReply.jsp" name="SaveReplyActionForm" path="/saveReply" scope="request" type="com.transport.action.SaveReplyAction">
+ <forward name="success" path="/GiveResponse.do"/>
+            <forward name="failure" path="/Failure.jsp"/>
+        </action>
+        <action path="/ViewFeedbackReply" type="com.transport.action.ViewFeedbackReplyAction">
+        <forward name="success" path="/viewFeedbackReply.jsp"/>
+            <forward name="failure" path="/viewFeedbackReply.jsp"/>
+        </action>
+        
+        
+        
+        
+        <action path="/SelectTimingsAction" type="com.transport.action.SelectTimingsAction"/>
+
+        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+    </action-mappings>
+
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>
+
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+
+</struts-config>
